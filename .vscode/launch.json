@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run snapshot_6568d3de40c10aeefb5edbaf",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@sap/html5-repo-mock/index.js",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_flat_run_config_handler_id\",\"runnableId\":\"/home/user/projects/snapshot_6568d3de40c10aeefb5edbaf\"}"
+      },
+      "args": [
+        "--standalone",
+        "/comsapbuildstandardinicio/test/testFLPServiceMockServer.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "envFile": "${workspaceFolder}/.env2",
+      "preLaunchTask": "Build snapshot_6568d3de40c10aeefb5edbaf"
+    }
+  ]
+}

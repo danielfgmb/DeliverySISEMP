@@ -1,0 +1,228 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "_version": "1.3.0",
+        "id": "com.sap.build.standard.inicio",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.2.2"
+        },
+        "dataSources": {
+            "local": {
+                "uri": "/here/goes/your/serviceUrl/local/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "ach": "ach",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "version": "1.32.0",
+            "toolsId": "78521d2c-be64-4fd0-9b6c-c24dfef0c265"
+        }
+    },
+    "sap.ui": {
+        "_version": "1.3.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "_version": "1.3.0",
+        "rootView": {
+            "viewName": "generated.app.view.ProductoCreate",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.50.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "local",
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "loadMetadataAsync": false,
+                    "json": true,
+                    "bJSON": true,
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "useBatch": true,
+                    "refreshAfterChange": false,
+                    "disableHeadRequestForToken": true
+                }
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "com.sap.build.standard.inicio.view",
+                "controlId": "App",
+                "clearTarget": false,
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": [
+                        "Productos"
+                    ]
+                }
+            },
+            "targets": {
+                "Productos": {
+                    "controlAggregation": "pages",
+                    "viewName": "Productos",
+                    "viewId": "Productos",
+                    "viewLevel": 13,
+                    "transition": "slide"
+                },
+                "ProductoDetail": {
+                    "controlAggregation": "pages",
+                    "viewName": "ProductoDetail",
+                    "viewId": "ProductoDetail",
+                    "viewLevel": 14,
+                    "transition": "slide"
+                },
+                "SalesOrderDetail": {
+                    "controlAggregation": "pages",
+                    "viewName": "SalesOrderDetail",
+                    "viewId": "SalesOrderDetail",
+                    "viewLevel": 10,
+                    "transition": "slide"
+                },
+                "SalesOrder": {
+                    "controlAggregation": "pages",
+                    "viewName": "SalesOrder",
+                    "viewId": "SalesOrder",
+                    "viewLevel": 8,
+                    "transition": "slide"
+                },
+                "SalesOrderCreate": {
+                    "controlAggregation": "pages",
+                    "viewName": "SalesOrderCreate",
+                    "viewId": "SalesOrderCreate",
+                    "viewLevel": 9,
+                    "transition": "slide"
+                },
+                "Clientes": {
+                    "controlAggregation": "pages",
+                    "viewName": "Clientes",
+                    "viewId": "Clientes",
+                    "viewLevel": 11,
+                    "transition": "slide"
+                },
+                "Proveedor": {
+                    "controlAggregation": "pages",
+                    "viewName": "Proveedor",
+                    "viewId": "Proveedor",
+                    "viewLevel": 7,
+                    "transition": "slide"
+                },
+                "ProductoCreate": {
+                    "controlAggregation": "pages",
+                    "viewName": "ProductoCreate",
+                    "viewId": "ProductoCreate",
+                    "viewLevel": 1,
+                    "transition": "slide"
+                }
+            },
+            "routes": [
+                {
+                    "pattern": "Productos/:context:",
+                    "name": "Productos",
+                    "target": [
+                        "Productos"
+                    ]
+                },
+                {
+                    "pattern": "",
+                    "name": "default",
+                    "target": [
+                        "Productos"
+                    ]
+                },
+                {
+                    "pattern": "ProductoDetail/:context:",
+                    "name": "ProductoDetail",
+                    "target": [
+                        "ProductoDetail"
+                    ]
+                },
+                {
+                    "pattern": "SalesOrderDetail/:context:",
+                    "name": "SalesOrderDetail",
+                    "target": [
+                        "SalesOrderDetail"
+                    ]
+                },
+                {
+                    "pattern": "SalesOrder/:context:",
+                    "name": "SalesOrder",
+                    "target": [
+                        "SalesOrder"
+                    ]
+                },
+                {
+                    "pattern": "SalesOrderCreate/:context:",
+                    "name": "SalesOrderCreate",
+                    "target": [
+                        "SalesOrderCreate"
+                    ]
+                },
+                {
+                    "pattern": "Clientes/:context:",
+                    "name": "Clientes",
+                    "target": [
+                        "Clientes"
+                    ]
+                },
+                {
+                    "pattern": "Proveedor/:context:",
+                    "name": "Proveedor",
+                    "target": [
+                        "Proveedor"
+                    ]
+                },
+                {
+                    "pattern": "ProductoCreate/:context:",
+                    "name": "ProductoCreate",
+                    "target": [
+                        "ProductoCreate"
+                    ]
+                }
+            ]
+        }
+    }
+}

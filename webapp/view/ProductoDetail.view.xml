@@ -1,0 +1,76 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.inicio.controller.ProductoDetail" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.commons.layout">
+    <Page showHeader="true" title="Venta" showFooter="true" showNavButton="true" enableScrolling="false" navButtonPress="_onPageNavButtonPress">
+        <content>
+            <layout:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout:positions>
+                    <layout:PositionContainer left="0px" top="1px">
+                        <layout:control>
+                            <List mode="None" width="320px" headerText="{Nombre}" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" items="{path:'Size', templateShareable:true}">
+                                <infoToolbar/>
+                                <headerToolbar/>
+                                <items>
+                                    <CustomListItem type="Active" selected="false" visible="true">
+                                        <content>
+                                            <HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceAround" renderType="Div" visible="true" displayInline="false">
+                                                <items>
+                                                    <Text text="Talla:" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{Talla}" width="45.00000000px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true" class="sapUiSmallMargin"/>
+                                                    <StepInput value="{path: 'VendidoSize', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" max="{path: 'Stock', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" step="1" largerStep="2" displayValuePrecision="0" width="auto" valueState="None" editable="true" enabled="true" visible="true"/>
+                                                </items>
+                                                <layoutData/>
+                                            </HBox>
+                                            <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                                <items>
+                                                    <Text text="Stock:" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <Text text="{path: 'StockFinal', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </items>
+                                                <layoutData/>
+                                            </HBox>
+                                        </content>
+                                    </CustomListItem>
+                                </items>
+                            </List>
+                        </layout:control>
+                    </layout:PositionContainer>
+                    <layout:PositionContainer left="0px" top="196px">
+                        <layout:control>
+                            <List mode="None" width="320px" headerText="Factura" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true">
+                                <infoToolbar/>
+                                <headerToolbar/>
+                                <items>
+                                    <CustomListItem type="Active" selected="false" visible="true">
+                                        <content>
+                                            <VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                                <items>
+                                                    <Text text="Seleccione la orden de venta:" width="320.00000000px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    <ComboBox selectedKey="" editable="true" enabled="true" visible="true" width="320.00000000px" valueState="None" maxWidth="100%" items="{path:'/SalesOrderSet', templateShareable:true}">
+                                                        <items>
+                                                            <core:Item text="{ID}" enabled="true" key="{ID}"/>
+                                                        </items>
+                                                    </ComboBox>
+                                                </items>
+                                                <layoutData/>
+                                            </VBox>
+                                        </content>
+                                    </CustomListItem>
+                                </items>
+                            </List>
+                        </layout:control>
+                    </layout:PositionContainer>
+                </layout:positions>
+            </layout:AbsoluteLayout>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Guardar" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                    <Button text="Cancelar" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

@@ -1,0 +1,46 @@
+{
+    "dataBinding": {
+        "/webapp/view/Productos.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ProductoDetail.view.xml": {
+            "entitySet": "/ProductSet"
+        }, 
+        "/webapp/view/SalesOrderDetail.view.xml": {
+            "entitySet": "/SalesOrderSet"
+        }, 
+        "/webapp/view/SalesOrder.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/SalesOrderCreate.view.xml": {
+            "entitySet": "/SalesOrderSet"
+        }, 
+        "/webapp/view/Clientes.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Proveedor.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ProductoCreate.view.xml": {
+            "entitySet": "/ProductSet"
+        }, 
+        "/webapp/view/Popover6.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Popover5.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Popover4.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Popover3.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Menu_1.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Menu.view.xml": {
+            "entitySet": ""
+        } 
+    }
+}

@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.inicio.controller.Menu" xmlns="sap.m">
+    <ResponsivePopover contentHeight="350px" contentWidth="250px" horizontalScrolling="true" modal="false" offsetX="0" offsetY="0" placement="Right" showHeader="true" title="Menu" verticalScrolling="true" visible="true" showCloseButton="true">
+        <content>
+            <List width="100%">
+                <items>
+                    <ActionListItem text="Pagina Principal" visible="true"/>
+                    <ActionListItem text="Productos" visible="true" press="_onActionListItemPress"/>
+                    <ActionListItem text="Clientes" visible="true"/>
+                    <ActionListItem text="Ordenes de venta" visible="true"/>
+                    <ActionListItem text="Proveedores" visible="true"/>
+                    <ActionListItem text="Ordenes de compra" visible="true"/>
+                </items>
+            </List>
+        </content>
+        <beginButton/>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </ResponsivePopover>
+</core:FragmentDefinition>

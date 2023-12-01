@@ -1,0 +1,221 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="9bbb464af4c6a0191a2ba6d0" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="9bbb464af4c6a0191a2ba6d0_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="ClientSet" EntityType="9bbb464af4c6a0191a2ba6d0.Client" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ClientSalesOrderSalesOrder" Association="9bbb464af4c6a0191a2ba6d0.ClientSalesOrderSalesOrder" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ClientSet" Role="FromRole_ClientSalesOrderSalesOrder"/>
+                    <End EntitySet="SalesOrderSet" Role="ToRole_ClientSalesOrderSalesOrder"/>
+                </AssociationSet>
+                <EntitySet Name="SupplierSet" EntityType="9bbb464af4c6a0191a2ba6d0.Supplier" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="SupplierBuyOrderBuyOrder" Association="9bbb464af4c6a0191a2ba6d0.SupplierBuyOrderBuyOrder" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SupplierSet" Role="FromRole_SupplierBuyOrderBuyOrder"/>
+                    <End EntitySet="BuyOrderSet" Role="ToRole_SupplierBuyOrderBuyOrder"/>
+                </AssociationSet>
+                <EntitySet Name="SalesOrderSet" EntityType="9bbb464af4c6a0191a2ba6d0.SalesOrder" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="SalesOrderSalesOrderItemSalesOrderItem" Association="9bbb464af4c6a0191a2ba6d0.SalesOrderSalesOrderItemSalesOrderItem" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_SalesOrderSalesOrderItemSalesOrderItem"/>
+                    <End EntitySet="SalesOrderItemSet" Role="ToRole_SalesOrderSalesOrderItemSalesOrderItem"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderClientClient" Association="9bbb464af4c6a0191a2ba6d0.SalesOrderClientClient" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_SalesOrderClientClient"/>
+                    <End EntitySet="ClientSet" Role="ToRole_SalesOrderClientClient"/>
+                </AssociationSet>
+                <EntitySet Name="BuyOrderSet" EntityType="9bbb464af4c6a0191a2ba6d0.BuyOrder" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="BuyOrderSalesOrderItemSalesOrderItem" Association="9bbb464af4c6a0191a2ba6d0.BuyOrderSalesOrderItemSalesOrderItem" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="BuyOrderSet" Role="FromRole_BuyOrderSalesOrderItemSalesOrderItem"/>
+                    <End EntitySet="SalesOrderItemSet" Role="ToRole_BuyOrderSalesOrderItemSalesOrderItem"/>
+                </AssociationSet>
+                <AssociationSet Name="BuyOrderSupplierSupplier" Association="9bbb464af4c6a0191a2ba6d0.BuyOrderSupplierSupplier" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="BuyOrderSet" Role="FromRole_BuyOrderSupplierSupplier"/>
+                    <End EntitySet="SupplierSet" Role="ToRole_BuyOrderSupplierSupplier"/>
+                </AssociationSet>
+                <EntitySet Name="ProductSet" EntityType="9bbb464af4c6a0191a2ba6d0.Product" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ProductSizeSize" Association="9bbb464af4c6a0191a2ba6d0.ProductSizeSize" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ProductSet" Role="FromRole_ProductSizeSize"/>
+                    <End EntitySet="SizeSet" Role="ToRole_ProductSizeSize"/>
+                </AssociationSet>
+                <EntitySet Name="SizeSet" EntityType="9bbb464af4c6a0191a2ba6d0.Size" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="SalesOrderItemSet" EntityType="9bbb464af4c6a0191a2ba6d0.SalesOrderItem" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="SalesOrderItemProductProduct" Association="9bbb464af4c6a0191a2ba6d0.SalesOrderItemProductProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderItemSet" Role="FromRole_SalesOrderItemProductProduct"/>
+                    <End EntitySet="ProductSet" Role="ToRole_SalesOrderItemProductProduct"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Client">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nombre"/>
+                <Property Name="Contacto" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Contacto"/>
+                <Property Name="Identificacion" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Identificacion"/>
+                <NavigationProperty Name="SalesOrder" Relationship="9bbb464af4c6a0191a2ba6d0.ClientSalesOrderSalesOrder" FromRole="FromRole_ClientSalesOrderSalesOrder" ToRole="ToRole_ClientSalesOrderSalesOrder"/>
+            </EntityType>
+            <Association Name="ClientSalesOrderSalesOrder">
+                <End Type="9bbb464af4c6a0191a2ba6d0.Client" Multiplicity="1" Role="FromRole_ClientSalesOrderSalesOrder"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.SalesOrder" Multiplicity="*" Role="ToRole_ClientSalesOrderSalesOrder"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ClientSalesOrderSalesOrder">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ClientSalesOrderSalesOrder">
+                        <PropertyRef Name="___FK_99bc6a84410e9fc31a2ba70f_00013"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Supplier">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nombre"/>
+                <Property Name="Identificacion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Identificacion"/>
+                <Property Name="Contacto" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Contato"/>
+                <NavigationProperty Name="BuyOrder" Relationship="9bbb464af4c6a0191a2ba6d0.SupplierBuyOrderBuyOrder" FromRole="FromRole_SupplierBuyOrderBuyOrder" ToRole="ToRole_SupplierBuyOrderBuyOrder"/>
+            </EntityType>
+            <Association Name="SupplierBuyOrderBuyOrder">
+                <End Type="9bbb464af4c6a0191a2ba6d0.Supplier" Multiplicity="1" Role="FromRole_SupplierBuyOrderBuyOrder"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.BuyOrder" Multiplicity="*" Role="ToRole_SupplierBuyOrderBuyOrder"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SupplierBuyOrderBuyOrder">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SupplierBuyOrderBuyOrder">
+                        <PropertyRef Name="___FK_99bc6a84410e9fc31a2ba70f_00019"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="SalesOrder">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_99bc6a84410e9fc31a2ba70f_00013" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_99bc6a84410e9fc31a2ba70f_00013"/>
+                <Property Name="Cantidad" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;navPropId\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;navPropOp\&quot;:\&quot;sum\&quot;,\&quot;propertyId\&quot;:\&quot;Cantidad\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;entityName\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;propertyName\&quot;:\&quot;Cantidad\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;SalesOrderItem&quot;,&quot;entityId&quot;:&quot;SalesOrderItem&quot;,&quot;propertyId&quot;:&quot;Cantidad&quot;}]}" sap:label="Cantidad"/>
+                <Property Name="Total" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;*\&quot;,\&quot;name\&quot;:\&quot;times\&quot;,\&quot;type\&quot;:\&quot;operator\&quot;,\&quot;left\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;SalesOrder\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropOp\&quot;:null,\&quot;propertyId\&quot;:\&quot;Cantidad\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:2,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;entityName\&quot;:\&quot;SalesOrder\&quot;,\&quot;propertyName\&quot;:\&quot;Cantidad\&quot;}],\&quot;right\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;navPropId\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;navPropOp\&quot;:\&quot;mean\&quot;,\&quot;propertyId\&quot;:\&quot;PrecioUnidad\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:3,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;entityName\&quot;:\&quot;SalesOrderItem\&quot;,\&quot;propertyName\&quot;:\&quot;PrecioUnidad\&quot;}],\&quot;displayLabel\&quot;:\&quot;*\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;SalesOrder&quot;,&quot;propertyId&quot;:&quot;Cantidad&quot;},{&quot;navPropId&quot;:&quot;SalesOrderItem&quot;,&quot;entityId&quot;:&quot;SalesOrderItem&quot;,&quot;propertyId&quot;:&quot;PrecioUnidad&quot;}]}" sap:label="Total"/>
+                <Property Name="___FK_85217062c6ffb08d1a2c4c4e_00003" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_85217062c6ffb08d1a2c4c4e_00003"/>
+                <NavigationProperty Name="SalesOrderItem" Relationship="9bbb464af4c6a0191a2ba6d0.SalesOrderSalesOrderItemSalesOrderItem" FromRole="FromRole_SalesOrderSalesOrderItemSalesOrderItem" ToRole="ToRole_SalesOrderSalesOrderItemSalesOrderItem"/>
+                <NavigationProperty Name="Client" Relationship="9bbb464af4c6a0191a2ba6d0.SalesOrderClientClient" FromRole="FromRole_SalesOrderClientClient" ToRole="ToRole_SalesOrderClientClient"/>
+            </EntityType>
+            <Association Name="SalesOrderSalesOrderItemSalesOrderItem">
+                <End Type="9bbb464af4c6a0191a2ba6d0.SalesOrder" Multiplicity="1" Role="FromRole_SalesOrderSalesOrderItemSalesOrderItem"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.SalesOrderItem" Multiplicity="*" Role="ToRole_SalesOrderSalesOrderItemSalesOrderItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderSalesOrderItemSalesOrderItem">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderSalesOrderItemSalesOrderItem">
+                        <PropertyRef Name="___FK_85a699f6d0b6e9f81a2c4032_00009"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SalesOrderClientClient">
+                <End Type="9bbb464af4c6a0191a2ba6d0.SalesOrder" Multiplicity="1" Role="FromRole_SalesOrderClientClient"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.Client" Multiplicity="1" Role="ToRole_SalesOrderClientClient"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_SalesOrderClientClient">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_SalesOrderClientClient">
+                        <PropertyRef Name="___FK_85217062c6ffb08d1a2c4c4e_00003"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="BuyOrder">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_99bc6a84410e9fc31a2ba70f_00019" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_99bc6a84410e9fc31a2ba70f_00019"/>
+                <Property Name="Cantidad" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Cantidad"/>
+                <Property Name="Total" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Totatl"/>
+                <Property Name="___FK_60a21bd5f584ad2b1a2c51a1_00003" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_60a21bd5f584ad2b1a2c51a1_00003"/>
+                <NavigationProperty Name="SalesOrderItem" Relationship="9bbb464af4c6a0191a2ba6d0.BuyOrderSalesOrderItemSalesOrderItem" FromRole="FromRole_BuyOrderSalesOrderItemSalesOrderItem" ToRole="ToRole_BuyOrderSalesOrderItemSalesOrderItem"/>
+                <NavigationProperty Name="Supplier" Relationship="9bbb464af4c6a0191a2ba6d0.BuyOrderSupplierSupplier" FromRole="FromRole_BuyOrderSupplierSupplier" ToRole="ToRole_BuyOrderSupplierSupplier"/>
+            </EntityType>
+            <Association Name="BuyOrderSalesOrderItemSalesOrderItem">
+                <End Type="9bbb464af4c6a0191a2ba6d0.BuyOrder" Multiplicity="1" Role="FromRole_BuyOrderSalesOrderItemSalesOrderItem"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.SalesOrderItem" Multiplicity="*" Role="ToRole_BuyOrderSalesOrderItemSalesOrderItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_BuyOrderSalesOrderItemSalesOrderItem">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_BuyOrderSalesOrderItemSalesOrderItem">
+                        <PropertyRef Name="___FK_1ce8823015d137931a2c4f20_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BuyOrderSupplierSupplier">
+                <End Type="9bbb464af4c6a0191a2ba6d0.BuyOrder" Multiplicity="1" Role="FromRole_BuyOrderSupplierSupplier"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.Supplier" Multiplicity="1" Role="ToRole_BuyOrderSupplierSupplier"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_BuyOrderSupplierSupplier">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_BuyOrderSupplierSupplier">
+                        <PropertyRef Name="___FK_60a21bd5f584ad2b1a2c51a1_00003"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Product">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nombre"/>
+                <Property Name="PrecioUnidad" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="PrecioUnidad"/>
+                <Property Name="StockTotal" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;Size\&quot;,\&quot;navPropId\&quot;:\&quot;Size\&quot;,\&quot;navPropOp\&quot;:\&quot;sum\&quot;,\&quot;propertyId\&quot;:\&quot;StockFinal\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;Size\&quot;,\&quot;entityName\&quot;:\&quot;Size\&quot;,\&quot;propertyName\&quot;:\&quot;StockFinal\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;Size&quot;,&quot;entityId&quot;:&quot;Size&quot;,&quot;propertyId&quot;:&quot;StockFinal&quot;}]}" sap:label="StockTotal"/>
+                <Property Name="Vendidos" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;Size\&quot;,\&quot;navPropId\&quot;:\&quot;Size\&quot;,\&quot;navPropOp\&quot;:\&quot;sum\&quot;,\&quot;propertyId\&quot;:\&quot;VendidoSize\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;Size\&quot;,\&quot;entityName\&quot;:\&quot;Size\&quot;,\&quot;propertyName\&quot;:\&quot;VendidoSize\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;Size&quot;,&quot;entityId&quot;:&quot;Size&quot;,&quot;propertyId&quot;:&quot;VendidoSize&quot;}]}" sap:label="Vendidos"/>
+                <NavigationProperty Name="Size" Relationship="9bbb464af4c6a0191a2ba6d0.ProductSizeSize" FromRole="FromRole_ProductSizeSize" ToRole="ToRole_ProductSizeSize"/>
+            </EntityType>
+            <Association Name="ProductSizeSize">
+                <End Type="9bbb464af4c6a0191a2ba6d0.Product" Multiplicity="1" Role="FromRole_ProductSizeSize"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.Size" Multiplicity="*" Role="ToRole_ProductSizeSize"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProductSizeSize">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProductSizeSize">
+                        <PropertyRef Name="___FK_0cb59b265d0b6c241a2c3463_00008"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Size">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Talla" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Talla"/>
+                <Property Name="VendidoSize" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="VendidoSize"/>
+                <Property Name="Stock" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Stock"/>
+                <Property Name="___FK_0cb59b265d0b6c241a2c3463_00008" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_0cb59b265d0b6c241a2c3463_00008"/>
+                <Property Name="StockFinal" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;-\&quot;,\&quot;name\&quot;:\&quot;minus\&quot;,\&quot;type\&quot;:\&quot;operator\&quot;,\&quot;left\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;Size\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropOp\&quot;:null,\&quot;propertyId\&quot;:\&quot;Stock\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:2,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;entityName\&quot;:\&quot;Size\&quot;,\&quot;propertyName\&quot;:\&quot;Stock\&quot;}],\&quot;right\&quot;:[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;Size\&quot;,\&quot;navPropId\&quot;:\&quot;\&quot;,\&quot;navPropOp\&quot;:null,\&quot;propertyId\&quot;:\&quot;VendidoSize\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:3,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;entityName\&quot;:\&quot;Size\&quot;,\&quot;propertyName\&quot;:\&quot;VendidoSize\&quot;}],\&quot;displayLabel\&quot;:\&quot;-\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Size&quot;,&quot;propertyId&quot;:&quot;Stock&quot;},{&quot;navPropId&quot;:&quot;&quot;,&quot;entityId&quot;:&quot;Size&quot;,&quot;propertyId&quot;:&quot;VendidoSize&quot;}]}" sap:label="StockFinal"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItem">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_85a699f6d0b6e9f81a2c4032_00005" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_85a699f6d0b6e9f81a2c4032_00005"/>
+                <Property Name="Cantidad" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Cantidad"/>
+                <Property Name="PrecioUnidad" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;Product\&quot;,\&quot;navPropId\&quot;:\&quot;Product\&quot;,\&quot;navPropOp\&quot;:null,\&quot;propertyId\&quot;:\&quot;PrecioUnidad\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;Product\&quot;,\&quot;entityName\&quot;:\&quot;Product\&quot;,\&quot;propertyName\&quot;:\&quot;PrecioUnidad\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;navPropId&quot;:&quot;Product&quot;,&quot;entityId&quot;:&quot;Product&quot;,&quot;propertyId&quot;:&quot;PrecioUnidad&quot;}]}" sap:label="PrecioUnidad"/>
+                <Property Name="___FK_85a699f6d0b6e9f81a2c4032_00009" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_85a699f6d0b6e9f81a2c4032_00009"/>
+                <Property Name="___FK_1ce8823015d137931a2c4f20_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_1ce8823015d137931a2c4f20_00001"/>
+                <NavigationProperty Name="Product" Relationship="9bbb464af4c6a0191a2ba6d0.SalesOrderItemProductProduct" FromRole="FromRole_SalesOrderItemProductProduct" ToRole="ToRole_SalesOrderItemProductProduct"/>
+            </EntityType>
+            <Association Name="SalesOrderItemProductProduct">
+                <End Type="9bbb464af4c6a0191a2ba6d0.SalesOrderItem" Multiplicity="1" Role="FromRole_SalesOrderItemProductProduct"/>
+                <End Type="9bbb464af4c6a0191a2ba6d0.Product" Multiplicity="1" Role="ToRole_SalesOrderItemProductProduct"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_SalesOrderItemProductProduct">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_SalesOrderItemProductProduct">
+                        <PropertyRef Name="___FK_85a699f6d0b6e9f81a2c4032_00005"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
